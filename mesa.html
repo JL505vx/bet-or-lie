@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BET OR LIE - La Mesa de los Dados</title>
+  <link rel="stylesheet" href="mesa.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="hud">
+    <div class="hud-item">⚓ Dificultad: <span id="hud-difficulty"></span></div>
+    <div class="hud-item">🎲 Ronda: <span id="hud-round">1</span> / <span id="hud-total">5</span></div>
+    <div class="hud-item">💀 Máquina: <span id="hud-ai-dice">5</span> | 🧔 <span id="hud-player-name">Tú</span>: <span id="hud-player-dice">5</span></div>
+    <div id="dice-count-display" class="dice-count"></div>
+  </div>
+
+  <div id="game-scene">
+    <h1 class="title">🎲 La Mesa de los Dados 🎲</h1>
+    <p class="subtitle">Prepárate, pirata... el destino aguarda.</p>
+
+    <div class="table-area">
+      <img src="assets/ui/manoderecha.jpg" alt="mano izquierda" class="hand left">
+      <img src="assets/ui/Pergament2.png" alt="tarro" class="cup">
+      <img src="assets/ui/manoizquierda.jpg" alt="mano derecha" class="hand right">
+    </div>
+
+    <button id="shake-btn">🌀 Agitar el Tarro</button>
+
+    <div id="bet-panel" class="hidden">
+      <p id="ai-bet"></p>
+      <div class="player-dice" id="player-dice"></div>
+
+      <div id="player-input" class="hidden">
+        <label for="bet-text">Tu apuesta:</label><br>
+        <input type="text" id="bet-text" placeholder="Ejemplo: 6 cincos">
+        <button id="submit-bet">⚓ Apostar</button>
+      </div>
+
+      <div class="actions">
+        <button id="raise-btn">⚔️ Hacer apuesta</button>
+        <button id="doubt-btn">💀 ¡Mientes!</button>
+      </div>
+    </div>
+
+    <div id="reveal-panel" class="hidden"></div>
+    <div id="round-end" class="hidden"></div>
+  </div>
+
+  <audio id="shake-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9d7a8a9b5a.mp3?filename=dice-shake-6473.mp3"></audio>
+  <audio id="reveal-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3c16e17c9e.mp3?filename=dice-roll-1-17548.mp3"></audio>
+  <script src="mesa.js"></script>
+</body>
+</html>

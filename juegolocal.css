@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("assets/bg/pirate-scene.jpg") no-repeat center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pirata One', cursive;
+  color: #f4e1b6;
+  overflow: hidden;
+}
+
+#intro-screen {
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid #b88646;
+  border-radius: 20px;
+  padding: 40px;
+  width: 70%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+  animation: fadeIn 2s ease forwards;
+}
+
+.dialogue-box p {
+  font-size: 1.8em;
+  line-height: 1.6;
+  min-height: 100px;
+  transition: all 0.4s ease;
+}
+
+#player-name {
+  display: block;
+  margin: 25px auto 0 auto; /* Centrado horizontal y espacio superior */
+  padding: 12px 18px;
+  font-size: 1.3em;
+  border-radius: 12px;
+  border: 2px solid #b88646;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  color: #2b1a0e;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 60%;
+  max-width: 320px;
+}
+
+#player-name:focus {
+  border-color: #e6b668;
+  box-shadow: 0 0 10px rgba(230, 182, 104, 0.7);
+  transform: scale(1.03);
+}
+
+
+#next-btn {
+  margin-top: 25px;
+  background: #8b4513;
+  border: 2px solid #e6b668;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #f4e1b6;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: 0.3s;
+}
+
+#next-btn:hover {
+  transform: scale(1.05);
+  background: #a55e1b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === BOTONES ESTILO PIRATA PROFESIONAL === */
+.round-btn, .diff-btn {
+  display: inline-block;
+  background: linear-gradient(180deg, #3b2314 0%, #2a1810 100%);
+  border: 2px solid #c9a45c;
+  border-radius: 12px;
+  color: #f5e6b3;
+  padding: 14px 28px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 0 6px rgba(255, 220, 150, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.round-btn::before, .diff-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+.round-btn:hover::before, .diff-btn:hover::before {
+  left: 125%;
+}
+
+.round-btn:hover, .diff-btn:hover {
+  background: linear-gradient(180deg, #4b2c16 0%, #2a1810 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 0 15px rgba(230, 182, 104, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.round-btn:active, .diff-btn:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* === AGRUPACIÓN ELEGANTE === */
+#intro-text button {
+  margin: 10px;
+}
+
+/* BRILLO DORADO SUTIL */
+.round-btn::after, .diff-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 215, 160, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.round-btn:hover::after, .diff-btn:hover::after {
+  opacity: 1;
+}
+
+.difficulty-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #f5e6b3;
+  text-shadow: 0 0 12px rgba(255, 230, 180, 0.8);
+}
+
+.difficulty-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.difficulty-container {
+  width: 260px;
+  text-align: center;
+}
+
+/* --- Evita que el navegador enfoque automáticamente los nuevos elementos --- */
+:focus {
+  outline: none !important;
+}
+
+body, html {
+  scroll-behavior: smooth;
+  overflow-anchor: none; /* ✅ previene el "auto-scroll" al cambiar contenido */
+}
+
+/* Asegura que el contenedor principal tenga margen inferior flexible */
+#mesa-container {
+  padding-bottom: 80px;
+}

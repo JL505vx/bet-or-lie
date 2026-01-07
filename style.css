@@ -1,0 +1,290 @@
+/* ==========================================
+   🏴 CENTRADO PERFECTO EN TODAS LAS PANTALLAS
+========================================== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Cinzel', serif;
+  color: #f5f5dc;
+  background: url("assets/bg/pirate-scene.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;   /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  animation: drift 15s ease-in-out infinite;
+}
+
+/* Fondo con sombra y niebla */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+/* Lluvia */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://i.imgur.com/5NZ7j6x.png");
+  opacity: 0.25;
+  animation: rainMove 4s linear infinite;
+  z-index: 1;
+}
+
+/* Contenedor principal centrado */
+#menu-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(194, 178, 128, 0.6);
+  border-radius: 15px;
+  padding: 30px 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  max-width: 350px;
+  width: 90%;
+}
+
+/* Responsive (mantiene centrado también en móvil) */
+@media (max-width: 768px) {
+  body {
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #menu-container {
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .game-title {
+    font-size: 2em;
+  }
+}
+
+/* Capa de niebla y sombra */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
+
+/* Efecto lluvia */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://i.imgur.com/5NZ7j6x.png");
+  opacity: 0.25;
+  animation: rainMove 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rainMove {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+/* Contenedor del menú */
+#menu-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(194, 178, 128, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Título con brillo tenue tipo farol */
+.game-title {
+  font-size: 2.8em;
+  color: #f5e6b3;
+  text-shadow:
+    0 0 10px rgba(255, 220, 150, 0.8),
+    0 0 25px rgba(255, 180, 80, 0.6);
+  margin-bottom: 40px;
+}
+
+/* Botones estilo madera y metal */
+.menu-buttons button {
+  display: block;
+  width: 240px;
+  padding: 14px 20px;
+  margin: 12px auto;
+  background: linear-gradient(180deg, #4e342e 0%, #3e2723 100%);
+  border: 2px solid #b08d57;
+  border-radius: 10px;
+  color: #f5e6b3;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.6);
+}
+
+.menu-buttons button:hover {
+  background: linear-gradient(180deg, #5d4037 0%, #3e2723 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 215, 160, 0.5);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 10px rgba(255, 220, 150, 0.8),
+      0 0 25px rgba(255, 180, 80, 0.6),
+      0 0 50px rgba(255, 160, 60, 0.4);
+  }
+  20%, 24%, 55% {
+    text-shadow: 
+      0 0 2px rgba(255, 220, 150, 0.3),
+      0 0 10px rgba(255, 180, 80, 0.2);
+  }
+}
+
+.game-title {
+  font-size: 2.8em;
+  color: #f5e6b3;
+  animation: flicker 2.5s infinite alternate;
+}
+
+@keyframes drift {
+  0% { background-position: center; }
+  50% { background-position: center 10px; }
+  100% { background-position: center; }
+}
+
+body {
+  animation: drift 15s ease-in-out infinite;
+}
+
+
+/* ==========================================
+   ⚓ OPTIMIZACIÓN VISUAL PARA CELULAR
+========================================== */
+@media (max-width: 768px) {
+  body {
+    background: url("assets/bg/pirate-scene.jpg") no-repeat center center/cover;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: center; /* ✅ mantiene el menú centrado */
+    align-items: center; /* ✅ centra verticalmente */
+  }
+
+  #menu-container {
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .game-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .menu-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .menu-buttons button {
+    width: 85%;
+    font-size: 1.2em;
+    padding: 12px 0;
+    border-radius: 10px;
+  }
+
+  /* Margen seguro para pantallas con notch */
+  html, body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+
+  /* PANTALLA DE LA MESA */
+  .game-container, .mesa {
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .dice {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hand {
+    width: 80px;
+    height: auto;
+  }
+
+  #left-hand, #right-hand {
+    position: static;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  #scrollable-content {
+    overflow-y: auto;
+    padding-bottom: 100px;
+  }
+
+  .status-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  h1, h2, h3, p, span {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  /* Botones del juego */
+  button {
+    font-size: 1.1em;
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
+
+  /* Evita que los textos se salgan del área */
+  .text-container, #mensaje, #fraseIA {
+    font-size: 0.95em;
+    padding: 0 10px;
+    word-wrap: break-word;
+  }
+
+  /* Evita que el contenido toque los bordes del notch */
+  body, html {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }

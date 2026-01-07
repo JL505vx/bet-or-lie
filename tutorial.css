@@ -1,0 +1,222 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+  overflow: hidden;
+  font-family: 'Cinzel', serif;
+  color: #3b2a1a;
+}
+
+body {
+  min-height: 100vh; /* ✅ permite crecer */
+  overflow-y: auto;  /* ✅ habilita scroll vertical */
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ✅ no bloquea scroll */
+}
+
+
+/* --- Pergamino central --- */
+#parchment {
+  position: relative;
+  background: url("assets/ui/Pergament2.png") no-repeat center center;
+  background-size: 100% 100%;
+  width: 85vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: unfold 1.5s ease forwards;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.inner {
+  z-index: 1;
+  width: 70%;
+  text-align: center;
+  animation: fadeIn 2s ease 1s forwards;
+  opacity: 0;
+}
+
+h1 {
+  color: #3a2418;
+  text-shadow: 0 0 10px rgba(255, 200, 150, 0.6);
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#tutorial-text {
+  font-size: 1.2em;
+  color: #2e1c0b;
+  line-height: 1.6;
+  transition: opacity 0.5s ease;
+}
+
+#tutorial-image {
+  width: 400px;
+  height: auto;
+  margin: 20px auto;
+  border: 3px solid #a1783f;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  display: block;
+  transition: all 0.5s ease;
+}
+
+/* --- Botones --- */
+#next-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 35px;
+  background: none;
+  border: none;
+  color: #1c1207;
+  font-family: 'Pirata One', cursive;
+  font-size: 1.6em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#next-btn:hover {
+  color: #4b2d12;
+  transform: scale(1.08);
+  text-shadow: 0 0 10px rgba(90, 45, 16, 0.8);
+}
+
+#volver {
+  position: absolute;
+  bottom: 25px;
+  left: 35px;
+  background: none;
+  border: none;
+  color: #1c1207;
+  font-family: 'Pirata One', cursive;
+  font-size: 1.6em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#volver:hover {
+  color: #4b2d12;
+  transform: scale(1.08);
+  text-shadow: 0 0 10px rgba(90, 45, 16, 0.8);
+}
+
+/* --- Animaciones --- */
+@keyframes unfold {
+  0% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1.05); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================= */
+/* 📱 --- RESPONSIVIDAD --- */
+/* ============================================================= */
+
+@media (max-width: 1024px) {
+  #parchment {
+    width: 90vw;
+    height: 85vh;
+  }
+
+  .inner {
+    width: 80%;
+  }
+
+  #tutorial-image {
+    width: 300px;
+  }
+
+  #next-btn, #volver {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding-top: 8vh;
+  }
+
+  #parchment {
+    width: 95vw;
+    height: 80vh;
+  }
+
+  .inner {
+    width: 85%;
+  }
+
+  h1 {
+    font-size: 1.6em;
+  }
+
+  #tutorial-text {
+    font-size: 1em;
+  }
+
+  #tutorial-image {
+    width: 250px;
+    margin: 10px auto;
+  }
+
+  #next-btn, #volver {
+    font-size: 1.2em;
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #parchment {
+    width: 98vw;
+    height: 85vh;
+  }
+
+  .inner {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+
+  #tutorial-text {
+    font-size: 0.9em;
+  }
+
+  #tutorial-image {
+    width: 200px;
+    border: 2px solid #a1783f;
+  }
+
+  #next-btn, #volver {
+    font-size: 1em;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+  }
+}
+
+/* Animaciones */
+@keyframes unfold {
+  0% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1.05); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
